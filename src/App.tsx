@@ -1,11 +1,16 @@
 import './App.css'
+import Box from './components/Box'
+import Header from './components/Header'
+import Output from './components/Output'
 
 function App() {
 
   return (
     <div className='w-[343px]'>
 
-      <h1 className='text-[var(--gray)] font-bold text-center text-base '>Password Generator</h1>
+      <Header />
+      <Output />
+      <Box />
     </div>
   )
 }
