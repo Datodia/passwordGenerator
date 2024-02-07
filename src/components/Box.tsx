@@ -1,6 +1,7 @@
 import { useState } from "react";
 import Checkbox from "./Checkbox";
 import StrengthChecker from "./StrengthChecker";
+import GenerateBtn from "./GenerateBtn";
 
 export default function Box() {
 
@@ -51,6 +52,9 @@ export default function Box() {
         />
 
         <StrengthChecker
+            strength={strength}
+        />
+        <GenerateBtn
             strength={strength}
         />
     </div>
