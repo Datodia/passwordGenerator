@@ -29,3 +29,7 @@ body{
   justify-content: center;
   align-items: center;
 }
+
+input[type="range"]::-webkit-slider-thumb {
+  background: white;
+}
