@@ -22,11 +22,11 @@ export default function StrengthChecker({strength}: StrengthCheckerType) {
     }, [strength])
     
   return (
-    <section className="mt-7 p-4 bg-[var(--very-dark-gray)] flex justify-between">
-        <h2 className="text-[var(--gray)] text-base font-bold">STRENGTH</h2>
-        <div className="flex gap-2">
-            <h2 className="text-[var(--almost-white)] text-base font-bold">{text}</h2>
-            <img className="w-10" src={imgUrl} alt="" />
+    <section className="mt-7 p-4 bg-[var(--very-dark-gray)] flex justify-between md:px-8 md:py-6">
+        <h2 className="text-[var(--gray)] text-base font-bold md:text-lg">STRENGTH</h2>
+        <div className="flex gap-2 md:gap-4">
+            <h2 className="text-[var(--almost-white)] text-base font-bold md:text-xl">{text}</h2>
+            <img className="w-10 md:w-12" src={imgUrl} alt="" />
         </div>
     </section>
   )
