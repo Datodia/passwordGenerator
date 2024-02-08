@@ -4,10 +4,11 @@ import StrengthChecker from "./StrengthChecker";
 import GenerateBtn from "./GenerateBtn";
 import { BoxType } from "../types";
 import LengthsGenerator from "./LengthsGenerator";
+import { checkboxes } from "./checkboxs";
 
 export default function Box({setPassword}: BoxType) {
 
-    const [strength, setStrength] = useState<string[]>([])
+    const [strength, setStrength] = useState<string[]>(['uppercase'])
     const [passLength, setPassLength] = useState(12)
 
   return (
@@ -16,31 +17,17 @@ export default function Box({setPassword}: BoxType) {
             passLength={passLength}
             setPassLength={setPassLength}
         />
-        <Checkbox 
-            text={'Include Uppercase Letters'}
-            name={'uppercase'}
-            setStrength={setStrength}
-            id={'uppercase-letter'}
-        />
-        <Checkbox 
-            text={'Include Lowercase Letters'}
-            name={'lowercase'}
-            setStrength={setStrength}
-            id={'lowercase-letter'}
-        />
-        <Checkbox 
-            text={'Include Numbers'}
-            name={'numbers'}
-            setStrength={setStrength}
-            id={'numbers'}
-        />
-        <Checkbox 
-            text={'Include Symbols'}
-            name={'symbols'}
-            setStrength={setStrength}
-            id={'symbols'}
-        />
-
+        {
+            checkboxes.map(el => (
+                <Checkbox
+                    text={el.text}
+                    id={el.id}
+                    name={el.name}
+                    setStrength={setStrength}
+                    defaultChecked={el.defaultChecked}
+                />
+            ))
+        }
         <StrengthChecker
             strength={strength}
         />
