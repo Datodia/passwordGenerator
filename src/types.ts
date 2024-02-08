@@ -4,6 +4,7 @@ export type CheckBoxType = {
     name: string;
     setStrength: React.Dispatch<React.SetStateAction<string[]>>
     id: string;
+    defaultChecked?: boolean;
 }
 
 export type StrengthCheckerType = {
