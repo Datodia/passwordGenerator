@@ -2,30 +2,20 @@ import { useState } from "react";
 import Checkbox from "./Checkbox";
 import StrengthChecker from "./StrengthChecker";
 import GenerateBtn from "./GenerateBtn";
+import { BoxType } from "../types";
+import LengthsGenerator from "./LengthsGenerator";
 
-export default function Box() {
+export default function Box({setPassword}: BoxType) {
 
     const [strength, setStrength] = useState<string[]>([])
-    const [passLength, setPassLength] = useState(10)
+    const [passLength, setPassLength] = useState(12)
 
-    console.log(strength, "stength")
-    
   return (
-    <div className="mt-4 p-4 bg-[var(--dark-gray)] ">
-        <section className="flex justify-between items-center">
-            <h2 className="text-[var(--almost-white)] text-base font-bold">Characters Length</h2>
-            <h2 className="text-[var(--neon-green)] text-2xl font-bold" >{passLength}</h2>
-        </section>
-        <section className="mt-2 mb-4">
-            <input 
-                onChange={(e) => setPassLength(Number(e.target.value))} 
-                value={passLength} 
-                className="w-full  accent-[var(--neon-green)]" 
-                type="range" 
-                min={1} 
-                max={20} 
-            />
-        </section>
+    <div className="mt-4 p-4 bg-[var(--dark-gray)] md:px-8 md:py-8 ">
+        <LengthsGenerator
+            passLength={passLength}
+            setPassLength={setPassLength}
+        />
         <Checkbox 
             text={'Include Uppercase Letters'}
             name={'uppercase'}
@@ -55,7 +45,9 @@ export default function Box() {
             strength={strength}
         />
         <GenerateBtn
+            passLength={passLength}
             strength={strength}
+            setPassword={setPassword}
         />
     </div>
   )
